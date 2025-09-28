@@ -1,0 +1,16 @@
+$ORIGIN cloudcurio.cc.
+$TTL 3600
+
+@   IN SOA ns1.cloudflare.com. dns.cloudflare.com. ( 2025092101 3600 900 604800 3600 )
+    IN NS ns1.cloudflare.com.
+    IN NS ns2.cloudflare.com.
+
+@   IN CNAME cloudcurio-next.pages.dev.
+www IN CNAME cloudcurio-next.pages.dev.
+api IN CNAME cloudcurio-api.workers.dev.
+assets IN CNAME cloudcurio-assets.r2.dev.
+turn IN A 203.0.113.10
+_turn._udp   IN SRV 10 60 3478 turn.cloudcurio.cc.
+stun IN CNAME turn.cloudcurio.cc.
+@   IN TXT "v=spf1 -all"
+_acme-challenge IN TXT "PLACEHOLDER"

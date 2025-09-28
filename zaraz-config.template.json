@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "settings": { "enable": true, "manualLoad": false },
+  "variables": { "siteName": "Cloudcurio" },
+  "tools": [
+    { "type": "google-analytics-4", "name": "GA4", "properties": { "measurementId": "G-XXXXXXXXXX" }, "actions": [{ "event": "page_view" }] }
+  ],
+  "triggers": [{ "name": "On Pageview", "type": "pageview" }]
+}

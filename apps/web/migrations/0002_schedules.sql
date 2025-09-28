@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS crawl_schedules (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  url TEXT NOT NULL,
+  interval_min INTEGER NOT NULL DEFAULT 60,
+  next_run TEXT
+);

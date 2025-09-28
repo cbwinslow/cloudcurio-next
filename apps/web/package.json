@@ -1,0 +1,31 @@
+{
+  "name": "cloudcurio-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "pages:build": "npx @cloudflare/next-on-pages --experimental-minify",
+    "deploy:pages": "npx wrangler pages deploy .vercel/output"
+  },
+  "dependencies": {
+    "@auth/core": "^0.34.0",
+    "@auth/drizzle-adapter": "^0.7.1",
+    "@cloudflare/next-on-pages": "^1.13.0",
+    "ai": "^3.4.33",
+    "drizzle-orm": "^0.33.0",
+    "jsonwebtoken": "^9.0.2",
+    "next": "14.2.14",
+    "next-auth": "^5.0.0-beta.20",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^22.7.4",
+    "@types/react": "^18.3.5",
+    "typescript": "^5.6.3"
+  }
+}

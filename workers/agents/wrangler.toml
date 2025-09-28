@@ -1,0 +1,20 @@
+name = "cloudcurio-agents"
+main = "src/index.ts"
+compatibility_date = "2024-11-21"
+
+[[durable_objects.bindings]]
+name = "AGENT_QUEUE"
+class_name = "AgentQueue"
+
+[[d1_databases]]
+binding = "CLOUDCURIO_DB"
+database_name = "cloudcurio_db"
+database_id = "cloudcurio_db"
+
+[[r2_buckets]]
+binding = "CLOUDCURIO_BUCKET"
+bucket_name = "cloudcurio-bucket"
+
+[vars]
+# Set this via Wrangler or dashboard as a secret if preferred
+# OPENROUTER_API_KEY = "sk-or-..."

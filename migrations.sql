@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS audit (id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER, event TEXT, payload TEXT);
+CREATE TABLE IF NOT EXISTS drafts (slug TEXT PRIMARY KEY, mdx TEXT);
+CREATE TABLE IF NOT EXISTS notebook (id TEXT PRIMARY KEY, ts INTEGER, title TEXT, tags TEXT, embedding BLOB);
+CREATE TABLE IF NOT EXISTS fred_series (id TEXT PRIMARY KEY, title TEXT, units TEXT, last_updated TEXT);
+CREATE TABLE IF NOT EXISTS fred_observations (series_id TEXT, obs_date TEXT, value REAL, PRIMARY KEY (series_id, obs_date));
+CREATE TABLE IF NOT EXISTS census_dataset (id TEXT PRIMARY KEY, title TEXT, vintage TEXT, geo TEXT, notes TEXT);
+CREATE TABLE IF NOT EXISTS census_obs (ds_id TEXT, geo_id TEXT, var TEXT, val REAL, year INTEGER, PRIMARY KEY (ds_id, geo_id, var, year));
+CREATE TABLE IF NOT EXISTS fbi_offense (offense TEXT, year INTEGER, state TEXT, value REAL, PRIMARY KEY (offense, year, state));
+CREATE TABLE IF NOT EXISTS stocks_prices (symbol TEXT, ts TEXT, open REAL, high REAL, low REAL, close REAL, volume REAL, PRIMARY KEY (symbol, ts));
+CREATE TABLE IF NOT EXISTS documents (id TEXT PRIMARY KEY, key TEXT, filename TEXT, content_type TEXT, bytes INTEGER, uploaded_ts INTEGER);
+CREATE TABLE IF NOT EXISTS doc_text (id TEXT PRIMARY KEY, doc_id TEXT, text TEXT);
+CREATE TABLE IF NOT EXISTS doc_embeddings (id TEXT PRIMARY KEY, doc_id TEXT, chunk INTEGER, vector BLOB);

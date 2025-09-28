@@ -1,0 +1,66 @@
+name = "cloudcurio-next-blog"
+compatibility_date = "2024-12-01"
+main = "./.open-next/worker/index.mjs"
+
+[vars]
+SITE_NAME = "Cloudcurio Blog"
+GITHUB_USER = "cbwinslow"
+
+[kv_namespaces]
+[[kv_namespaces]]
+binding = "KV_VIEWS"
+id = "REPLACE_WITH_YOUR_KV_ID"
+preview_id = "REPLACE_WITH_YOUR_KV_PREVIEW_ID"
+
+[d1_databases]
+[[d1_databases]]
+binding = "DB"
+database_name = "cloudcurio_blog"
+database_id = "REPLACE_WITH_YOUR_D1_ID"
+
+[r2_buckets]
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "cloudcurio-assets"
+
+[[r2_buckets]]
+binding = "R2_DOCS"
+bucket_name = "cloudcurio-docs"
+
+# Vectorize & AI
+[[vectorize]]
+binding = "VEC"
+index_name = "cloudcurio-posts"
+
+[ai]
+binding = "AI"
+
+# Queues
+[[queues.producers]]
+binding = "AUDIT_PRODUCER"
+queue = "cloudcurio-audit"
+
+[[queues.consumers]]
+queue = "cloudcurio-audit"
+binding = "AUDIT_CONSUMER"
+worker = "audit-consumer"
+
+[[queues.producers]]
+binding = "INGEST_PRODUCER"
+queue = "cloudcurio-ingest"
+
+[[queues.consumers]]
+queue = "cloudcurio-ingest"
+binding = "INGEST_CONSUMER"
+worker = "ingest-consumer"
+
+# Hyperdrive (Postgres)
+[[hyperdrive]]
+binding = "HYPER"
+id = "REPLACE_WITH_HYPERDRIVE_ID"
+
+[placement]
+mode = "smart"
+
+[triggers]
+crons = ["0 */6 * * *", "0 3 * * *"]
