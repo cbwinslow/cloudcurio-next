@@ -1,6 +1,7 @@
-import '../globals.css'
+import '../../styles/globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import Providers from '@/components/Providers'
 import { ReactNode } from 'react'
 
 export const metadata = {
@@ -13,11 +14,13 @@ export const metadata = {
 
 export default function RootLayout({ children }:{ children: ReactNode }){
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body>
-        <Nav />
-        <main className="max-w-6xl mx-auto p-4">{children}</main>
-        <Footer />
+        <Providers>
+          <Nav />
+          <main className="max-w-6xl mx-auto p-4">{children}</main>
+          <Footer />
+        </Providers>
         {/* Cloudflare Web Analytics */}
         <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token":"YOUR_CLOUDFLARE_WEB_ANALYTICS_TOKEN"}' />
